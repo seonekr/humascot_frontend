@@ -58,12 +58,9 @@ a {
 
 .box-product:hover {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-}
-
-.box-product:hover {
     border: none;
-}
 
+}
 .box-product .img {
     display: flex;
     width: 223px;
