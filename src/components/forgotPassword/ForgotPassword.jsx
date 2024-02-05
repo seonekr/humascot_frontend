@@ -54,7 +54,7 @@ const ForgotPassword = () => {
   return (
     <>
       <div className="box_forgot">
-        <Link to="/more" className="box_iconBack">
+        <Link to="/loginuser" className="box_iconBack">
           <MdArrowBack id='iconBack'/>
         </Link>
         <h2>Find password</h2>

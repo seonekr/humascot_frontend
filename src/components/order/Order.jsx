@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "./order.css";
 import Header from "../header/Header";
 import Menu from "../menuFooter/Menu";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Order = () => {
-  return (
 
+  const [order, setOrder] = useState([]);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + `/store/bills`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setOrder(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  console.log(order)
+  const user_id =  JSON.parse(window.localStorage.getItem("user")).user_id;
+
+  const orders = order.filter((item) => item.user === user_id);
+
+
+  return (
     <>
       <Header />
       <section id="container_order_item">
@@ -17,29 +46,19 @@ const Order = () => {
             <p>Back</p>
           </Link>
           <h2>Order</h2>
-          <Link to="/bill" className="box_item_order">
-            <div>
+          {order.map((i, index) => (
+          <Link to={`/bill/${i.id}`} className="box_item_order" key={index}>
+            <div >
               <div className="box_item_order_text">
-                <p>No: 01</p>
-                <p>10.1.2024</p>
+                <p>NO:{i.id}</p>
+                <p>{i.due_date}</p>
               </div>
               <p className="txtheadeproductorder">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui!
+                {i.decs}
               </p>
             </div>
           </Link>
-
-          <Link to="/bill" className="box_item_order">
-            <div>
-              <div className="box_item_order_text">
-                <p>No: 01</p>
-                <p>10.1.2024</p>
-              </div>
-              <p className="txtheadeproductorder">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui!
-              </p>
-            </div>
-          </Link>
+          ))}
         </div>
       </section>
       <Menu />

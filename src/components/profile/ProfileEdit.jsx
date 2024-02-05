@@ -29,7 +29,7 @@ const ProfileEdit = () => {
     <>
         <div className="ProfilePage_edit">
             <div className='boxgoback'>
-                <Link to="/profile" className="box_iconBack">
+                <Link to="/more" className="box_iconBack">
                     <MdArrowBack id='iconBack'/>
                 </Link>
             </div>
@@ -53,10 +53,63 @@ const ProfileEdit = () => {
                 <p>User</p><FaRegUserCircle id='iconUser'/>
             </div>
             <form className='container_form_profileedit'>
-                <input type="email" placeholder="humascot@gmail.com" required />
-                <input type="password" placeholder=" Please enter yourcurrent password " required />
-                <input type="password" placeholder=" Please enter a new password " required />
-                <input type="password" placeholder=" Please confirm your new password " required />
+                <input 
+                    type="email" 
+                    placeholder="humascot@gmail.com" 
+                    required 
+                />
+                 <input
+                  type="text"
+                  name="name"
+                  placeholder="Store name (required)"
+                  required
+                />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address (required) "
+                  required
+                />
+                <input
+                  type="text"
+                  name="sub_address"
+                  placeholder="Detailed address (optional)"
+                  required
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone number (optional)"
+                  required
+                />
+                <input
+                  type="text"
+                  name="company_number"
+                  placeholder="Business registration number (optional)"
+                  required
+                />
+
+                <textarea
+                  className="box_text"
+                  name="introduce"
+                  placeholder="introduction..........."
+                  maxLength="300"
+                ></textarea>
+                <input 
+                    type="password" 
+                    placeholder=" Please enter yourcurrent password " 
+                    required 
+                />
+                <input 
+                    type="password" 
+                    placeholder=" Please enter a new password " 
+                    required 
+                />
+                <input 
+                    type="password" 
+                    placeholder=" Please confirm your new password " 
+                    required 
+                />
 
                 <button type="submit" >Confirmation</button>
             </form>

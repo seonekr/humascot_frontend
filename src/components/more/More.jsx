@@ -71,11 +71,12 @@ export const More = () => {
           <div className="left_box">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/1200px-Unknown_person.jpg" alt="" />
             <div className="user_name">
-              Name: {JSON.parse(window.localStorage.getItem("user")).user_name ||
-                JSON.parse(window.localStorage.getItem("user")).email}
+              Name: ....
+              {/* {JSON.parse(window.localStorage.getItem("user")).user_name ||
+                JSON.parse(window.localStorage.getItem("user")).email} */}
             </div>
           </div>
-          <Link to="/profile" className="right_box">
+          <Link to="/profileedit" className="right_box">
             <button>View</button>
           </Link>
         </div>
@@ -92,7 +93,7 @@ export const More = () => {
             <p>Privay Policy</p>
           </Link>
           <hr className='hr' />
-          <Link to="/forgotpassword" className='menu_icon'>
+          <Link to="/profileedit" className='menu_icon'>
             <IoKeySharp id="icon_more" />
             <p>Change password</p>
           </Link>

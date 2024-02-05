@@ -6,6 +6,17 @@
   width: 40%;
 }
 
+.box_back_home{
+  padding: 10px 0;
+}
+.box_iconBack_homepage{
+  margin-right: 35rem;
+}
+#iconBack{
+  width: 30px;
+  height: 40px;
+}
+
 .box_container_login2 input,
 .box_container_login2 button {
   width: 100%;
@@ -34,6 +45,7 @@
   border-radius: 14px;
   padding: 1rem 3rem;
   width: 100%;
+  margin-top: 1rem;
 }
 
 .google-login svg {
@@ -139,6 +151,7 @@
   text-align: end;
   font-size: 18px;
   color: #777;
+  margin-top: 0.5rem;
 }
 .findpassword{
   margin-left: 0.5rem;
@@ -210,6 +223,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .login_btn {
@@ -268,7 +282,10 @@
     top: 40%;
     left: 50%;
   }
-  
+
+  .box_iconBack_homepage{
+    margin-right: 19rem;
+  }
 
   .cover {
     width: 100%;

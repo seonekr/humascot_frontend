@@ -104,7 +104,7 @@ function App() {
 
           <Route path="/payment" Component={Payment} />
           <Route path="/order" Component={Order} />
-          <Route path="/bill" Component={Bill} />
+          <Route path="/bill/:order_id" Component={Bill} />
 
 
           {/* --------- Seller ---------- */}

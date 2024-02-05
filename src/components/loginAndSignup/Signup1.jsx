@@ -49,6 +49,7 @@ const Signup1 = () => {
                     type="radio"
                     id="user"
                     value="1"
+                    checked={user_type === "1"}
                     onChange={onChange}
                   />
                   <label htmlFor="user" className="user_type02">
@@ -63,6 +64,7 @@ const Signup1 = () => {
                     type="radio"
                     id="seller"
                     value="2"
+                    checked={user_type === "2"}
                     onChange={onChange}
                   />
                   <label htmlFor="seller" className="user_type02">
