@@ -1,194 +1,174 @@
-.header_box_management {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.btn_saveProdcut {
+    width: 60%;
     margin: auto;
-    width: 60%;
-    height: 70px;
-}
-
-.box_management_iconnback {
-    display: flex;
-    align-items: center;
-    color: #777;
-}
-
-.addproduct_container {
-    position: relative;
-    width: 60%;
-    margin: 1rem auto;
-    border-radius: 10px;
-    padding: 30px;
-    background: #FFF;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
-
-}
-
-.inputproduct_box {
-    margin: 20px 0;
-}
-
-.inputproduct {
-    margin-top: 10px;
-    width: 100%;
-    padding: 15px 10px;
-    border-radius: 7px;
-    border: 1px solid #DDDCE1;
-}
-
-
-.select_box {
-
-    padding: 15px 10px;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-
-.select_box .option_itemD {
-
-    padding: 100px;
-}
-
-.size_product_box_container {
-    margin-top: 10px;
-    padding: 20px;
-    border-radius: 7px;
-    border: 1px solid #DDDCE1;
-}
-
-.size_content_box {
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.addsize_btn {
-    padding: 15px 30px;
-    color: #FFF;
-    border-radius: 7px;
-    background: #FF4F16;
-    cursor: pointer;
-}
-
-.box_sizeTso_add {
+    position: fixed;
+    bottom: 0;
+    border-radius: 30px;
+    background: #347FFF;
+    padding: 23px;
+    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
     display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 2rem auto;
+    text-align: center;
+    color: #FFF;
 }
 
-.box_sizeTo_add_item {
+.addProduct_box_content {
+    display: flex;
+    width: 100%;
+    height: 41vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #FCFCFC;
+    border: 1px solid #EBEBEB;
+    cursor: pointer;
+}
+
+.addProduct_box_content:hover {
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.addplue_ofProduct {
+    font-size: 35px;
+    background-color: #EAF2FF;
+    border-radius: 300px;
+    padding: 10px 20px;
+    color: #347FFF;
+}
+
+.addProduct_box_content_afterThat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.deleteBox_productconotent {
+    position: absolute;
+    background-color: red;
+    font-size: 20px;
+    color: #FFF;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 7px;
+    cursor: pointer;
+}
+
+.addProduct_box_content_afterThat img {
+    width: 100%;
+}
+
+.box_txt_andIconn_addproduct {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    padding: 7px 10px;
-    border: 1px solid #DDDCE1;
-    border-radius: 7px;
 }
 
-.iconn_close_addSize {
-    font-size: 27px;
-    cursor: pointer;
-    color: #FF4F16;
+.background_addproductpopup_box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #00000036;
+    z-index: 999;
 }
 
-.add_img_product_box,
-.boxicon_img_input {
-    margin: 15px 0;
+.hover_addproductpopup_box {
+    width: 30%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.boxicon_img_input {
+.divsdfsdsf {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
-    padding: 15px 20px;
+    gap: 40px;
+    width: 100%;
+    height: 30vh;
+    background-color: #FFF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.btn_addproducttxt_popup {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 20px;
+}
+
+.btn_foasdf {
+    display: flex;
+}
+
+.btn_cancel {
+    background-color: #F2F3F7;
+    color: #000;
+}
+
+.btn_confirm {
+    background-color: #347FFF;
+    color: #FFF;
+}
+
+.btn_cancel:hover {
+    background-color: #e7e8ee;
+}
+
+.btn_confirm:hover {
+    background-color: #3076f0;
+}
+
+
+.input_of_txtAddproduct {
+    width: 80%;
+    border-radius: 30px;
+    padding: 20px;
     border: 1px solid #DDDCE1;
-    border-radius: 7px;
 }
 
-.boxicon_img_iconn {
-    font-size: 23px;
-}
-
-.btn_save_productUser {
+.icon_penAddproduct {
+    background-color: #8a8f97;
+    color: #FFF;
+    padding: 3px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    top: -15px;
-    right: 30px;
-    position: absolute;
-    width: 150px;
-    margin-top: 2rem;
-    padding: 12px 0;
-    text-align: center;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    background: #FF4F16;
-    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
-}
-
-.btn_Delete_productUser {
-    cursor: pointer;
-    top: -15px;
-    right: 200px;
-    position: absolute;
-    width: 150px;
-    margin-top: 2rem;
-    padding: 12px 0;
-    text-align: center;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    background: red;
-    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
 }
 
 @media screen and (max-width: 431px) {
-
-    .header_box_management {
-        width: 100%;
-        margin: 0;
+    .addProduct_box_content {
+        height: 30vh;
     }
 
-
-    .addproduct_container {
-        width: 100%;
-        margin: 20px 0;
-        padding: 20px 10px;
+    .banner_no_box_img {
+        height: 20vh;
     }
 
-    .box_sizeTso_add {
-        gap: 10px;
-        grid-template-columns: 1fr 1fr 1fr;
+    .hover_addproductpopup_box {
+        width: 95%;
     }
 
-    .size_product_box_container {
-        width: 100%;
-        overflow: hidden;
-        padding: 20px 10px;
+    .divsdfsdsf {
+        height: 20vh;
     }
 
-    .box_sizeTo_add_item {
-        gap: 0;
+    .btn_saveProdcut {
+        width: 90%;
+        left: 1.5rem;
     }
 
-    .size_content_box {
-        gap: 1rem;
-    }
-
-    .btn_save_productUser {
-        position: unset;
-        width: 100%;
-        padding: 20px 0;
-        border-radius: 30px;
-    }
-
-    .btn_Delete_productUser {
-        position: unset;
-        width: 100%;
-        padding: 20px 0;
-        border-radius: 30px;
-    }
 
 }

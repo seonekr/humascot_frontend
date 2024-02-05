@@ -1,102 +1,55 @@
 import React from 'react'
 import './addProduct.css'
-import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoIosClose } from "react-icons/io";
 import { CiImageOn } from "react-icons/ci";
 import { useState, useEffect } from "react";
-
+import axios from "axios";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoCameraSharp } from "react-icons/io5";
+import banner_no from "../../../img/banner_no.jpg";
+import backgroundProduct from "../../../img/backgroundProduct.jpg";
+import productImage from "../../../img/productImage.png";
+import { FaPencil } from "react-icons/fa6";
+import { AiOutlineDelete } from "react-icons/ai";
 function AddProduct() {
-    const [categories, set_categories] = useState([])
+    const [category, set_category] = useState(6);
+    const [goods_list, set_goods_list] = useState([]);
 
-    
+    const [val, setVal] = useState([]);
 
-    const [product, setProduct] = useState({
-        name: "",
-        price: "",
-        category: "",
-        description: "",
-        sizes: [],
+    const handleAdd = () => {
+        const abc = [...val, []]
+        setVal(abc)
+    }
 
-        image: "",
-        image_details: "",
-        currentsizes: "",
+    const handleDelete = (i) => {
+        const deletVal = [...val]
+        deletVal.splice(i, 1)
+        setVal(deletVal)
+    }
 
-    });
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setProduct((prevProduct) => ({
-            ...prevProduct,
-            [name]: value,
-        }));
-    };
+    useEffect(() => {
+        let config = {
+            method: "get",
+            maxBodyLength: Infinity,
+            url: import.meta.env.VITE_API + `/store/?category=${category}`,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
 
-    const handleSizeInputChange = (e) => {
-        const { value } = e.target;
-        setProduct((prevProduct) => ({
-            ...prevProduct,
-            currentsizes: value,
-        }));
-    };
-
-    const addSizeInput = () => {
-        if (product.currentsizes.trim() !== "") {
-            setProduct((prevProduct) => ({
-                ...prevProduct,
-                sizes: [...prevProduct.sizes, prevProduct.currentsizes],
-
-                currentsizes: "", // Reset the current color after adding
-
-            }));
-        }
-    };
-
-    const removeSizeInput = (index) => {
-        if (product.sizes.length > 0) {
-            setProduct((prevProduct) => {
-                const updatedSizes = [...prevProduct.sizes];
-                updatedSizes.splice(index, 1);
-                return {
-                    ...prevProduct,
-                    sizes: updatedSizes,
-                };
+        axios
+            .request(config)
+            .then((response) => {
+                set_goods_list(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
             });
-        }
-    };
+    }, [category]);
 
-
-
-    const handleColorInputChange = (e) => {
-        const { value } = e.target;
-        setProduct((prevProduct) => ({
-            ...prevProduct,
-            currentColor: value,
-        }));
-    };
-
-    const addColorInput = () => {
-        if (product.currentColor.trim() !== "") {
-            setProduct((prevProduct) => ({
-                ...prevProduct,
-                colors: [...prevProduct.colors, prevProduct.currentColor],
-                currentColor: "", // Reset the current color after adding
-            }));
-        }
-    };
-
-    const removeColorInput = (index) => {
-        if (product.colors.length > 0) {
-            setProduct((prevProduct) => {
-                const updatedColors = [...prevProduct.colors];
-                updatedColors.splice(index, 1);
-                return {
-                    ...prevProduct,
-                    colors: updatedColors,
-                };
-            });
-        }
-    };
 
 
     const handleSubmit = (e) => {
@@ -114,99 +67,228 @@ function AddProduct() {
         console.log(product);
     };
 
+    //PopUp box add banner
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const togglePopup = () => {
+        setPopupVisible(!isPopupVisible);
+    };
+
+    //PopUp box add image
+    const [isPopupimage, setPopupimage] = useState(false);
+
+    const togglePopupimage = () => {
+        setPopupimage(!isPopupimage);
+    };
+
+    //PopUp box add name
+    const [isPopupname, setPopupname] = useState(false);
+
+    const togglePopupname = () => {
+        setPopupname(!isPopupname);
+    };
+    //PopUp box add price
+    const [isPopupprice, setPopupprice] = useState(false);
+
+    const togglePopupprice = () => {
+        setPopupprice(!isPopupprice);
+    };
+    //PopUp box add category
+    const [isPopupcategory, setPopupcategory] = useState(false);
+
+    const togglePopupcategory = () => {
+        setPopupcategory(!isPopupcategory);
+    };
+    //PopUp box add description
+    const [isPopupdescription, setPopupdescription] = useState(false);
+
+    const togglePopupdescription = () => {
+        setPopupdescription(!isPopupdescription);
+    };
+
 
     return (
         <>
-            <div className="header_box_management">
-                <Link to="/store-management" className="box_management_iconnback">
-                    <IoIosArrowBack id="icons_back" />
-                    <p>Back</p>
-                </Link>
-                <div>
-                    <h3>Store management</h3>
-                </div>
-                <div></div>
-            </div>
+            <div className="box_store">
+                <div className="store_container_management">
+                    <div className="store_item_head">
+                        <Link to="/store-management" className="back_icons_back">
+                            <IoIosArrowBack />
+                            <p>Back</p>
+                        </Link>
+                        <div className="title_nameStore">
+                            <h3>online shop</h3>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div className="banner_no_box">
+                        <div className="banner_no_box_img">
+                            <img src={banner_no} alt="" />
+                        </div>
+                        <div className="edit_image">
+                            <a className="trigger_popup_fricc" onClick={togglePopup}>
+                                <IoCameraSharp />
+                            </a>
+                            {/* PopUp box add banner */}
+                            {isPopupVisible && (
+                                <form className="hover_bkgr_fricc">
+                                    <p>Image banner</p>
+                                    <div className="popupCloseButton" onClick={togglePopup}>
+                                        &times;
+                                    </div>
+                                    <label className="popup_txt_Boximagae">
+                                        <input type="file" name="image" />
+                                    </label>
+                                    <button className="banner_confirm_btn">Confirm</button>
+                                </form>
+                            )}
+                        </div>
+                    </div>
 
-            <form className="addproduct_container" onSubmit={handleSubmit}>
-                <h3>Add product</h3>
-                <div className='inputproduct_box'>
-                    <label htmlFor="name">Name:</label>
-                    <input className="inputproduct" name='name' type="text" placeholder='Product name' onChange={handleInputChange} />
-                </div>
-                <div className='inputproduct_box'>
-                    <label htmlFor="price">Price:</label>
-                    <input className="inputproduct" name='price' type="text" placeholder='Product price' onChange={handleInputChange} />
-                </div>
-                <div className='inputproduct_box'>
-                    <label htmlFor="category">Category:</label>
-                    <select name="category" className="inputproduct select_box">
+                    <div className="group_container_product">
+                        <div onClick={() => handleAdd()} className="addProduct_box_content">
+                            <div className="addplue_ofProduct">+</div>
+                        </div>
+                        {val.map((data, i) => {
+                            return (
+                                <div>
+                                    <div className="addProduct_box_content_afterThat">
+                                        <div className='deleteBox_productconotent' onClick={() => handleDelete(i)}><AiOutlineDelete /></div>
+                                        <img src={backgroundProduct} alt="image" />
 
-                        <option className='option_itemD' value="Name1">Name1</option>
-                        <option className='option_itemD' value="Name1">Name1</option>
-                        <option className='option_itemD' value="Name1">Name1</option>
+                                        <div className="edit_image">
+                                            <a className="trigger_popup_fricc" onClick={togglePopupimage}>
+                                                <IoCameraSharp />
+                                            </a>
+                                            {/* PopUp box add banner */}
+                                            {isPopupVisible && (
+                                                <form className="hover_bkgr_fricc">
+                                                    <p>Image banner</p>
+                                                    <div className="popupCloseButton" onClick={togglePopup}>
+                                                        &times;
+                                                    </div>
+                                                    <label className="popup_txt_Boximagae">
+                                                        <input type="file" name="image" />
+                                                    </label>
+                                                    <button className="banner_confirm_btn">Confirm</button>
+                                                </form>
+                                            )}
+                                        </div>
 
-                    </select>
-                </div>
-                <div className='inputproduct_box'>
-                    <label htmlFor="description">Description:</label>
-                    <input className="inputproduct" name='description' type="text" placeholder='Description' onChange={handleInputChange} />
-                </div>
+                                        <div className='box_txt_andIconn_addproduct'>
+                                            <p>name</p>
+                                            <div className='icon_penAddproduct'>
+                                                <FaPencil onClick={togglePopupname} />
+                                            </div>
+                                        </div>
+                                        <div className='box_txt_andIconn_addproduct'>
+                                            <p>name</p>
+                                            <div className='icon_penAddproduct'>
+                                                <FaPencil onClick={togglePopupprice} />
+                                            </div>
+                                        </div>
+                                        <div className='box_txt_andIconn_addproduct'>
+                                            <p>name</p>
+                                            <div className='icon_penAddproduct'>
+                                                <FaPencil onClick={togglePopupcategory} />
+                                            </div>
+                                        </div>
+                                        <div className='box_txt_andIconn_addproduct'>
+                                            <p>name</p>
+                                            <div className='icon_penAddproduct'>
+                                                <FaPencil onClick={togglePopupdescription} />
+                                            </div>
+                                        </div>
 
-                <div className="size_product_box">
-                    <h3>Size:</h3>
-                    <div className="size_product_box_container">
-                        <div className="box_sizeTso_add" >
-                            {product.sizes.map((size, index) => (
-                                <div className="box_sizeTo_add_item" key={index}>
-                                    <p>{size}</p>
-                                    <span
-                                        className="spanCancelBox"
-                                        onClick={() => removeSizeInput(index)}
-                                    >
-                                        <IoIosClose className='iconn_close_addSize' />
-                                    </span>
+                                        {isPopupimage && (
+                                            <form className="background_addproductpopup_box">
+                                                <div className="hover_addproductpopup_box">
+                                                    <div className="divsdfsdsf">
+                                                        <p>Add product image</p>
+                                                        <input type="file" className='input_of_txtAddproduct' />
+                                                    </div>
+                                                    <div className="btn_foasdf">
+                                                        <button className='btn_cancel btn_addproducttxt_popup' onClick={togglePopupimage}>Cancel</button>
+                                                        <button className='btn_confirm btn_addproducttxt_popup'>OK</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        )}
+
+                                        {isPopupname && (
+                                            <form className="background_addproductpopup_box">
+                                                <div className="hover_addproductpopup_box">
+                                                    <div className="divsdfsdsf">
+                                                        <p>Add product name</p>
+                                                        <input type="text" placeholder='Product name...' className='input_of_txtAddproduct' />
+                                                    </div>
+                                                    <div className="btn_foasdf">
+                                                        <button className='btn_cancel btn_addproducttxt_popup' onClick={togglePopupname}>Cancel</button>
+                                                        <button className='btn_confirm btn_addproducttxt_popup'>OK</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        )}
+                                        {isPopupprice && (
+                                            <form className="background_addproductpopup_box">
+                                                <div className="hover_addproductpopup_box">
+                                                    <div className="divsdfsdsf">
+                                                        <p>Add product price</p>
+                                                        <input type="text" placeholder='Product price...' className='input_of_txtAddproduct' />
+                                                    </div>
+                                                    <div className="btn_foasdf">
+                                                        <button className='btn_cancel btn_addproducttxt_popup' onClick={togglePopupprice}>Cancel</button>
+                                                        <button className='btn_confirm btn_addproducttxt_popup'>OK</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        )}
+                                        {isPopupcategory && (
+                                            <form className="background_addproductpopup_box">
+                                                <div className="hover_addproductpopup_box">
+                                                    <form className="divsdfsdsf">
+                                                        <label >Add product category</label>
+                                                        <select className="input_of_txtAddproduct">
+                                                            <option>category1</option>
+                                                            <option>category2</option>
+                                                            <option>category3</option>
+                                                        </select>
+                                                    </form>
+                                                    <div className="btn_foasdf">
+                                                        <button className='btn_cancel btn_addproducttxt_popup' onClick={togglePopupcategory}>Cancel</button>
+                                                        <button className='btn_confirm btn_addproducttxt_popup'>OK</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        )}
+                                        {isPopupdescription && (
+                                            <form className="background_addproductpopup_box">
+                                                <div className="hover_addproductpopup_box">
+                                                    <div className="divsdfsdsf">
+                                                        <p>Add product description</p>
+                                                        <input type="text" placeholder='Product description...' className='input_of_txtAddproduct' />
+                                                    </div>
+                                                    <div className="btn_foasdf">
+                                                        <button className='btn_cancel btn_addproducttxt_popup' onClick={togglePopupdescription}>Cancel</button>
+                                                        <button className='btn_confirm btn_addproducttxt_popup'>OK</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        )}
+
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
+                            )
+                        })}
 
-                        <div className="size_content_box">
-                            <input
-                                className="inputproduct"
-                                type="text"
-                                placeholder='Add Size...'
-                                onChange={handleSizeInputChange}
 
-                                value={product.currentsizes}
 
-                            />
-                            <div className="addsize_btn" onClick={addSizeInput}>
-                                Add
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-                <div className="add_img_product_box">
-                    <h3>Product image:</h3>
-                    <div className="boxicon_img_input">
-                        <CiImageOn className='boxicon_img_iconn' />
-                        <input type="file" name='image' className="input" onChange={handleInputChange} />
-                    </div>
-                </div>
-
-                <div className="add_img_product_box">
-                    <h3>Details image:</h3>
-                    <div className="boxicon_img_input">
-                        <CiImageOn className='boxicon_img_iconn' />
-                        <input type="file" name='image_details' className="input" onChange={handleInputChange} />
-                    </div>
-                </div>
-
-                <button type="submit" className='btn_save_productUser'>
+                <Link to="#" className="btn_saveProdcut">
                     Save
-                </button>
-            </form>
+                </Link>
+            </div>
         </>
     )
 }

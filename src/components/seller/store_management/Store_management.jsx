@@ -9,9 +9,9 @@ import { FaPen } from "react-icons/fa6";
 import axios from "axios";
 
 function Store_management() {
-  const [store_id, set_store_id] = useState(
-    JSON.parse(window.localStorage.getItem("user")).store_id
-  );
+  // const [store_id, set_store_id] = useState(
+  //   JSON.parse(window.localStorage.getItem("user")).store_id
+  // );
 
   const [category, set_category] = useState(6);
   const [goods_list, set_goods_list] = useState([]);
@@ -60,24 +60,6 @@ function Store_management() {
           <div className="banner_no_box">
             <div className="banner_no_box_img">
               <img src={banner_no} alt="" />
-            </div>
-            <div className="edit_image">
-              <a className="trigger_popup_fricc" onClick={togglePopup}>
-                <IoCameraSharp />
-              </a>
-              {/* PopUp box add banner */}
-              {isPopupVisible && (
-                <form className="hover_bkgr_fricc">
-                  <p>Image banner</p>
-                  <div className="popupCloseButton" onClick={togglePopup}>
-                    &times;
-                  </div>
-                  <label className="popup_txt_Boximagae">
-                    <input type="file" name="image" />
-                  </label>
-                  <button className="banner_confirm_btn">Confirm</button>
-                </form>
-              )}
             </div>
           </div>
 
