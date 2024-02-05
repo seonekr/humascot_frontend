@@ -5,7 +5,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { IoKeySharp } from "react-icons/io5";
 import { BsBackpack4Fill } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import { IoIosArrowBack } from "react-icons/io";
+import { MdArrowBack } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -57,10 +57,11 @@ export const More = () => {
   return (
     <>
       <div className="header_box_management">
-        <Link to="/" className="box_management_iconnback">
-          <IoIosArrowBack id="icons_back" />
-          <p>Back</p>
-        </Link>
+        <div className="box_more_back_home">
+          <Link to="/" className="box_iconBack_homepage">
+            <MdArrowBack id='iconBack'/>
+          </Link>
+        </div>
         <div>
           <h3>Setting Account</h3>
         </div>
@@ -71,9 +72,8 @@ export const More = () => {
           <div className="left_box">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/1200px-Unknown_person.jpg" alt="" />
             <div className="user_name">
-              Name: ....
-              {/* {JSON.parse(window.localStorage.getItem("user")).user_name ||
-                JSON.parse(window.localStorage.getItem("user")).email} */}
+              Name: {JSON.parse(window.localStorage.getItem("user")).user_name ||
+                JSON.parse(window.localStorage.getItem("user")).email}
             </div>
           </div>
           <Link to="/profileedit" className="right_box">

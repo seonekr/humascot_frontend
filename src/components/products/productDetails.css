@@ -477,6 +477,9 @@ body {
     overflow: hidden;
     padding: 10px;
   }
+  #more-product {
+    width: 90%;
+  }
 
   .product-page-img {
     display: block;
@@ -498,7 +501,9 @@ body {
   }
 
   .review_box {
+    width: 100%;
     padding: 10px;
+    display: block;
   }
 
   .last_box_review {

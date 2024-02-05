@@ -9,12 +9,13 @@
 .box_back_home{
   padding: 10px 0;
 }
-.box_iconBack_homepage{
+.box_login_iconBack_homepage{
   margin-right: 35rem;
 }
 #iconBack{
   width: 30px;
   height: 40px;
+  color: black;
 }
 
 .box_container_login2 input,
@@ -282,9 +283,11 @@
     top: 40%;
     left: 50%;
   }
-
-  .box_iconBack_homepage{
-    margin-right: 19rem;
+  .box_back_home{
+    padding: 10px 0;
+  }
+  .box_login_iconBack_homepage{
+    margin-right: 20rem;
   }
 
   .cover {

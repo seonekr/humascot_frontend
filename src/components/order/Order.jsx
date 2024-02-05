@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
 import { useEffect } from "react";
+import { MdArrowBack } from "react-icons/md";
 
 const Order = () => {
 
@@ -41,10 +42,11 @@ const Order = () => {
       <Header />
       <section id="container_order_item">
         <div className="container_order_all">
-          <Link to="/" className="box_management_iconnback">
-            <IoIosArrowBack id="icons_back" />
-            <p>Back</p>
-          </Link>
+            <div className="box_order_back_home">
+              <Link to="/" className="box_order_iconBack_homepage">
+                <MdArrowBack id='iconBack'/>
+              </Link>
+            </div>
           <h2>Order</h2>
           {order.map((i, index) => (
           <Link to={`/bill/${i.id}`} className="box_item_order" key={index}>

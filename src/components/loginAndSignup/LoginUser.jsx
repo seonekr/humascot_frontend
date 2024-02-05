@@ -74,7 +74,7 @@ const LoginUser = () => {
         <form className="box_container_login2">
           <div className="cover">
             <div className="box_back_home">
-              <Link to="/" className="box_iconBack_homepage">
+              <Link to="/" className="box_login_iconBack_homepage">
                 <MdArrowBack id='iconBack'/>
               </Link>
             </div>

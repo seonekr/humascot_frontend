@@ -2,11 +2,22 @@
 .header_box_management{
     padding: 40px 10px 10px 10px;
 }
-.header_box_management p{
-    font-size: 17px;
+.header_box_management h3{
+    font-size: 18px;
     font-weight: 600;
-    color: #5a5858dd;
+    text-align: center;
 }
+
+.box_more_back_home{
+    padding: 10px 18.1rem;
+  }
+  .box_iconBack_homepage{
+    margin-right: 35rem;
+  }
+  #iconBack{
+    width: 30px;
+    height: 40px;
+  }
 
 .MorePage {
     width: 60%;
@@ -148,8 +159,10 @@
 @media (max-width: 768px) {
     .MorePage {
         width: 100%;
-
     }
+    .box_more_back_home{
+        padding: 10px 0;
+      }
 
     .left_box img {
         width: 16%;

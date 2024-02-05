@@ -13,7 +13,17 @@
 .container_order_all h2 {
     text-align: center;
 }
-
+.box_order_back_home{
+    padding: 10px 0;
+  }
+  .box_order_iconBack_homepage1{
+    margin-right: 35rem;
+  }
+  #iconBack{
+    width: 30px;
+    height: 40px;
+    color: black;
+  }
 #container_order_item .box_item_order {
     width: 100%;
     margin-top: 1rem;
