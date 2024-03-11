@@ -1,29 +1,40 @@
-
 .box_forgot {
-    width: 80%;
-    margin: auto;
-    padding: 70px 0;
-    text-align: center;
-}
-.title{
-    margin-top: 1.5rem;
-    font-size: 18px;
-}
-.container_form_user{
-    margin-top: 3rem;
+  width: 100%;
+  margin: auto;
+  padding: 70px 0;
+  text-align: center;
 }
 
-.box_infor{
+.title {
+  margin-top: 1.5rem;
+  font-size: 18px;
+}
+
+.container_form_user {
+  margin-top: 3rem;
+}
+
+.box_iconBack {
+  margin-right: 35rem;
+}
+
+.box_infor {
   font-size: 18px;
   font-weight: 600;
   text-align: start;
 }
 
-.box_title{
-    text-align: start;
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: 2rem;
+.title_seller2 {
+  text-align: start;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.box_title {
+  text-align: start;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 2rem;
 }
 
 .container_form_user {
@@ -38,12 +49,14 @@
   align-items: center;
   position: relative;
   width: 100%;
- 
+
 }
-.container_form_user2 input{
+
+.container_form_user2 input {
   border: none;
 }
-.verification{
+
+.verification {
   right: 5px;
   position: absolute;
   padding: 8px 10px;
@@ -55,6 +68,7 @@
 .container_form_user input,
 .container_form_user button {
   width: 100%;
+  height: 58px;
   padding: 1rem 1rem;
   border-radius: 14px;
   border: 1px solid var(--gray);
@@ -78,24 +92,24 @@
     width: 100%;
     top: 40%;
     left: 50%;
-  /* Adjusting width for medium-sized screens */
+    /* Adjusting width for medium-sized screens */
   }
-  .box_title{
+
+  .box_title {
     margin-left: 1rem;
   }
+
   .container_form_user {
     width: 90%;
     display: grid;
   }
+
   .container_form_user input {
     width: 100%;
   }
-  .box_infor{
+
+  .box_infor {
     margin-left: 1.5rem;
   }
-  
+
 }
-  
-
-
-  

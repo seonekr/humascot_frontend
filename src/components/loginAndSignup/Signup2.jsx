@@ -103,7 +103,7 @@ const Signup2 = () => {
         </Link>
 
         {user_tyep == "1" ? (
-          <h2>User registration</h2>
+          <h2>Register</h2>
         ) : (
           <h2>Seller registration</h2>
         )}
